@@ -6,9 +6,9 @@ import java.sql.SQLException;
 import java.util.Properties;
 
 public class ConnectionUtil {
-    private static final String URL = "jdbc:mysql://sql11.freemysqlhosting.net:3306/sql11591044";
-    private static final String USERNAME = "sql11591044";
-    private static final String PASSWORD = "ZmfK1HzKC2";
+    private static final String URL = "jdbc:mysql://db4free.net:3306/ma_taxi_service";
+    private static final String USERNAME = "dmroot";
+    private static final String PASSWORD = "12345678";
     private static final String JDBC_DRIVER = "com.mysql.cj.jdbc.Driver";
 
     static {

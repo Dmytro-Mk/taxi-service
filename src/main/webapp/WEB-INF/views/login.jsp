@@ -6,7 +6,7 @@
 <head>
     <title>Login</title>
 </head>
-<body>
+<body class="login">
 <h2>Login page</h2>
 <h4 style="color: red">${errorMsg}</h4>
 <form method="post" action="${pageContext.request.contextPath}/login">

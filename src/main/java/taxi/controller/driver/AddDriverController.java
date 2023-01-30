@@ -5,6 +5,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import taxi.exception.AuthenticationException;
 import taxi.lib.Injector;
 import taxi.model.Driver;
@@ -32,9 +33,16 @@ public class AddDriverController extends HttpServlet {
         String login = req.getParameter("login");
         String password = req.getParameter("password");
         Driver driver = new Driver(name, licenseNumber, login, password);
+        HttpSession session = req.getSession();
+        Long driverId = (Long) session.getAttribute("driver_id");
         try {
             authenticationService.checkIfLoginExists(login);
             driverService.create(driver);
+            if (driverId == null) {
+                session.setAttribute("driver_id", driver.getId());
+                resp.sendRedirect(req.getContextPath() + "/index");
+                return;
+            }
             resp.sendRedirect(req.getContextPath() + "/drivers/add");
         } catch (AuthenticationException e) {
             req.setAttribute("errorMsg", e.getMessage());
