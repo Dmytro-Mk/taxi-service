@@ -60,7 +60,7 @@ git clone git@github.com:dmytro-mk/taxi-service.git
 ##### To run app locally on your pc you will need to install tomcat 9.0.50 and mysql 8.0. After that:
 
 1. Execute queries from init_db.sql to create needed tables.
-2. Replace username, password and url in util/HibernateUtil with your own.
+2. Replace username, password and url in util/ConnectionUtil with your own.
 3. Create new run configuration tomcat_local (requires intellij premium).
 4. Delete heroke related plugin from pom.xml.
 5. Run ```mvn package``` command in termanal.
@@ -68,8 +68,8 @@ git clone git@github.com:dmytro-mk/taxi-service.git
 7. Enjoy :smiley:
 
 ##### If you want to host your version of this app on heroku:
-1. Create remote MySql db (use init_db.sql to create tables). **Do not use existing one**.
-2. Replace username, password and url in util/HibernateUtil with your own.
+1. Create remote MySql db (use init_db.sql to create tables).
+2. Replace username, password and url in util/ConnectionUtil with your own.
 3. Create heroku account and run following commands:
 ```
 git add .
